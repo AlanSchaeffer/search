@@ -4,5 +4,5 @@ import com.github.alanschaeffer.search.domain.targets.SearchTarget;
 
 public interface Finder {
 
-	boolean match(SearchTarget target, String queryString);
+	boolean match(SearchTarget target);
 }

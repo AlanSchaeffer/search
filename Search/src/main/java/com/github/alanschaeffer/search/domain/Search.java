@@ -9,6 +9,6 @@ public class Search {
 	}
 
 	public Query find(String queryString) {
-		return new Query(queryString, finders.list());
+		return new Query(finders.forQuery(queryString));
 	}
 }

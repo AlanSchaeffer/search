@@ -14,18 +14,15 @@ public class LikeMatchTest {
 	public void test_Match() {
 		SearchTarget target = new StringTarget("my test etc etc");
 		
-		LikeMatch matcher = new LikeMatch();
-		
-		assertTrue(matcher.match(target, "my test etc etc"));
-		assertTrue(matcher.match(target, "test"));
-		assertTrue(matcher.match(target, "c et"));
-		assertFalse(matcher.match(target, "teste"));
+		assertTrue(new LikeMatch("my test etc etc").match(target));
+		assertTrue(new LikeMatch("test").match(target));
+		assertTrue(new LikeMatch("c et").match(target));
+		assertFalse(new LikeMatch("teste").match(target));
 	}
 	
 	@Test
 	public void test_Null_Safe() {
-		LikeMatch matcher = new LikeMatch();
-		assertFalse(matcher.match(new StringTarget(null), "teste"));
-		assertFalse(matcher.match(new StringTarget("teste"), null));
+		assertFalse(new LikeMatch("teste").match(new StringTarget(null)));
+		assertFalse(new LikeMatch(null).match(new StringTarget("teste")));
 	}
 }
