@@ -3,7 +3,7 @@
   <groupId>com.github.alanschaeffer</groupId>
   <artifactId>search</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Search</name>
+  <name>search-core</name>
   <description>Search functions</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
