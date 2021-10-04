@@ -17,8 +17,8 @@ public class SearchTest {
 
 	@Test
 	public void test_Search() {
-		StringTarget testTarget = new StringTarget("test");
-		StringTarget otherTarget = new StringTarget("other");
+		var testTarget = new StringTarget("test");
+		var otherTarget = new StringTarget("other");
 		
 		List<SearchTarget> targets = Arrays.asList(testTarget, otherTarget);
 		
@@ -32,10 +32,10 @@ public class SearchTest {
 	
 	@Test
 	public void test_Finder_Priority() {
-		StringTarget exactTarget = new StringTarget("test");
-		StringTarget partialTarget = new StringTarget("unit test");
-		StringTarget anotherPartialTarget = new StringTarget("testing environment");
-		StringTarget unrelated = new StringTarget("rats");
+		var exactTarget = new StringTarget("test");
+		var partialTarget = new StringTarget("unit test");
+		var anotherPartialTarget = new StringTarget("testing environment");
+		var unrelated = new StringTarget("rats");
 		
 		List<SearchTarget> targets = Arrays.asList(partialTarget, exactTarget, anotherPartialTarget, unrelated);
 		

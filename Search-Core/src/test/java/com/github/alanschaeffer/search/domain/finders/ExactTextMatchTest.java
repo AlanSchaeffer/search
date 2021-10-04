@@ -12,7 +12,7 @@ public class ExactTextMatchTest {
 
 	@Test
 	public void test_Match() {
-		SearchTarget target = new StringTarget("test");
+		var target = new StringTarget("test");
 		
 		assertTrue(new ExactTextMatch("test").match(target));
 		assertFalse(new ExactTextMatch("tes").match(target));

@@ -12,7 +12,7 @@ public class LikeMatchTest {
 
 	@Test
 	public void test_Match() {
-		SearchTarget target = new StringTarget("my test etc etc");
+		var target = new StringTarget("my test etc etc");
 		
 		assertTrue(new LikeMatch("my test etc etc").match(target));
 		assertTrue(new LikeMatch("test").match(target));

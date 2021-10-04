@@ -13,7 +13,7 @@ public class WordsMatchTest {
 	public void test_Match() {
 		String query = "o rato roeu a roupa do rei de roma";
 		
-		WordsMatch matcher = new WordsMatch(query);
+		var matcher = new WordsMatch(query);
 		
 		assertTrue(matcher.match(new StringTarget("rato")));
 		assertTrue(matcher.match(new StringTarget("roupa")));
