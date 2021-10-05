@@ -16,4 +16,8 @@ public class LabelTarget implements SearchTarget {
 	public String matchableText() {
 		return label.getText();
 	}
+	
+	public JLabel getComponent() {
+		return label;
+	}
 }
