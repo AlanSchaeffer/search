@@ -2,9 +2,7 @@ package com.github.alanschaeffer.search.swing.domain.target;
 
 import javax.swing.JLabel;
 
-import com.github.alanschaeffer.search.domain.targets.SearchTarget;
-
-public class LabelTarget implements SearchTarget {
+public class LabelTarget implements ComponentTarget<JLabel> {
 
 	private final JLabel label;
 
@@ -16,7 +14,8 @@ public class LabelTarget implements SearchTarget {
 	public String matchableText() {
 		return label.getText();
 	}
-	
+
+	@Override
 	public JLabel getComponent() {
 		return label;
 	}
