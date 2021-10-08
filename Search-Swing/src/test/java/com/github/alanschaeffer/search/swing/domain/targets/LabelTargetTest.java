@@ -1,10 +1,12 @@
-package com.github.alanschaeffer.search.swing.domain.target;
+package com.github.alanschaeffer.search.swing.domain.targets;
 
 import static org.junit.Assert.assertEquals;
 
 import javax.swing.JLabel;
 
 import org.junit.Test;
+
+import com.github.alanschaeffer.search.swing.domain.targets.LabelTarget;
 
 public class LabelTargetTest {
 
