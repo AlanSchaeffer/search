@@ -1,4 +1,4 @@
-package com.github.alanschaeffer.search.swing.domain.target;
+package com.github.alanschaeffer.search.swing.domain.targets;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import org.junit.Test;
 
 import com.github.alanschaeffer.search.domain.targets.SearchTarget;
+import com.github.alanschaeffer.search.swing.domain.targets.ComponentTargetExtractor;
 
 public class ComponentTargetExtractorTest {
 

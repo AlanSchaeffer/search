@@ -1,4 +1,4 @@
-package com.github.alanschaeffer.search.swing.domain.target;
+package com.github.alanschaeffer.search.swing.domain.targets;
 
 import java.awt.Component;
 import java.awt.Container;
