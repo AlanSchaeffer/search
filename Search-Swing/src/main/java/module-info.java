@@ -4,4 +4,5 @@ module com.github.alanschaeffer.search.swing {
 	requires java.desktop;
 	
 	exports com.github.alanschaeffer.search.swing.domain.targets;
+	exports com.github.alanschaeffer.search.swing.components.descriptor;
 }
