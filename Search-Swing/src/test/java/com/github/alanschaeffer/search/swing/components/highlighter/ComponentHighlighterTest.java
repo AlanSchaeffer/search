@@ -23,6 +23,43 @@ public class ComponentHighlighterTest {
 		assertEquals("activated", component.getText());
 	}
 	
+	@Test
+	public void test_Only_One_Highlighted_Component_At_A_Time() {
+		var label1 = new JLabel("original");
+		var label2 = new JLabel("original");
+		
+		var effect = new TestEffect(c -> ((JLabel) c).setText("activated"), c -> ((JLabel) c).setText("original"));
+		var highlighter = new ComponentHighlighter(effect);
+		
+		highlighter.highlight(label1);
+		
+		assertEquals("activated", label1.getText());
+		assertEquals("original", label2.getText());
+		
+		highlighter.highlight(label2);
+		
+		assertEquals("original", label1.getText());
+		assertEquals("activated", label2.getText());
+	}
+	
+	@Test
+	public void test_Unhighlight_Trigger() {
+		var component = new JLabel("original");
+		
+		var effect = new TestEffect(c -> ((JLabel) c).setText("activated"), c -> ((JLabel) c).setText("original"));
+		var unhighlightTrigger = new TestUnhighlightTrigger();
+		var highlighter = new ComponentHighlighter(effect);
+		highlighter.setUnhighlightTrigger(unhighlightTrigger);
+		
+		highlighter.highlight(component);
+		
+		assertEquals("activated", component.getText());
+		
+		unhighlightTrigger.trigger();
+		
+		assertEquals("original", component.getText());
+	}
+	
 	private static class TestEffect implements Effect {
 		
 		private Consumer<JComponent> activateEffect;
@@ -41,6 +78,20 @@ public class ComponentHighlighterTest {
 		@Override
 		public void deactivate(JComponent component) {
 			deactivateEffect.accept(component);
+		}
+	}
+	
+	private static class TestUnhighlightTrigger implements UnhighlightTrigger {
+
+		private Runnable current;
+		
+		@Override
+		public void activate(Runnable unhighlight) {
+			current = unhighlight;
+		}
+		
+		public void trigger() {
+			if(current != null) current.run();
 		}
 	}
 }
