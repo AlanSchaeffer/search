@@ -60,6 +60,21 @@ public class ComponentHighlighterTest {
 		assertEquals("original", component.getText());
 	}
 	
+	@Test
+	public void test_Dont_Unhighlight_Unrelated_Component() {
+		var component = new JLabel("original");
+		var unrelatedComponent = new JLabel("other");
+		
+		var effect = new TestEffect(c -> ((JLabel) c).setText("activated"), c -> ((JLabel) c).setText("original"));
+		var highlighter = new ComponentHighlighter(effect);
+		highlighter.setUnhighlightTrigger(r -> highlighter.unhighlight(unrelatedComponent));
+		
+		highlighter.highlight(component);
+		
+		assertEquals("activated", component.getText());
+		assertEquals("other", unrelatedComponent.getText());
+	}
+	
 	private static class TestEffect implements Effect {
 		
 		private Consumer<JComponent> activateEffect;

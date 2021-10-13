@@ -31,7 +31,7 @@ public class ComponentHighlighter {
 	}
 	
 	public synchronized void unhighlight(JComponent component) {
-		if(currentlyHighlightedComponent != null) {
+		if(currentlyHighlightedComponent != null && currentlyHighlightedComponent == component) {
 			highlight(null);
 		}
 	}
